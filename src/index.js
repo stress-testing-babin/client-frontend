@@ -1,12 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import 'bootstrap/dist/css/bootstrap.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  Navigation,
+  Overview,
+  TestConfig,
+} from "./components";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <Router>
+    <Navigation />
+    <Routes>
+      <Route path="/" element={<Overview />} />
+      <Route path="/testConfig" element={<TestConfig />} />
+    </Routes>
+  </Router>,
+
+  document.getElementById("root")
 );
+
